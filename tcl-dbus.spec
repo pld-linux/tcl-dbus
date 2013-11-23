@@ -1,12 +1,12 @@
 Summary:	Tcl Library for Interacting with DBus
 Name:		tcl-dbus
-Version:	1.1
+Version:	2.0
 Release:	1
 License:	BSD
 Group:		Development/Languages/Tcl
 URL:		http://dbus-tcl.sourceforge.net/
-Source0:	http://downloads.sourceforge.net/dbus-tcl/dbus-tcl%{version}.tar.gz
-# Source0-md5:	370b15f2e88983934574e49b16fc39bc
+Source0:	http://downloads.sourceforge.net/dbus-tcl/dbus/%{version}/dbus-%{version}.tar.gz
+# Source0-md5:	09def26e4fff4e4a9903e6d5a3b1d272
 BuildRequires:	dbus-devel
 BuildRequires:	pkg-config
 BuildRequires:	tcl-devel
@@ -19,7 +19,7 @@ coordinate the lifecycle of a process. For more information about
 DBus, see http://www.freedesktop.org/wiki/Software/dbus
 
 %prep
-%setup -q -n dbus-tcl%{version}
+%setup -q -n dbus-%{version}
 
 %build
 
@@ -42,6 +42,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%dir %{_libdir}/dbus-tcl
-%attr(755,root,root) %{_libdir}/dbus-tcl/libdbus-tcl%{version}.so
-%{_libdir}/dbus-tcl/pkgIndex.tcl
+%doc ChangeLog README doc/dbus.html
+%dir %{_libdir}/dbus
+%attr(755,root,root) %{_libdir}/dbus/libdbus%{version}.so
+%{_libdir}/dbus/pkgIndex.tcl
